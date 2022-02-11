@@ -11,7 +11,7 @@ const requestMiddleware = (req, res, next) => {
 
 app.use(requestMiddleware);
 
-app.use("/api", goodsRouter);
+app.use("/api", [goodsRouter]);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
