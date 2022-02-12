@@ -8,7 +8,6 @@ router.get("/carts", async (req, res) => {
     const goodsIds = carts.map((cart) => cart.goodsId);
     const goods = await Goods.find({ goodsId: goodsIds });
 
-
     res.json({
         carts: carts.map((cart) => ({
             quantity: cart.quantity,

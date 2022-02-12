@@ -9,13 +9,12 @@ const goodsRouter = require("./routes/goods");
 const cartsRouter = require("./routes/carts");
 
 const requestMiddleware = (req, res, next) => {
-    console.log("Request URL: ", req.originalUrl, " - ", new Date());
+    console.log(`Request URL: ${req.originalUrl} - ${new Date()}`);
     next();
 };
 
 app.use(express.json());
-app.use(requestMiddleware);
-
+app.use(requestMiddleware)
 app.use("/api", [goodsRouter, cartsRouter]);
 
 app.get('/', (req, res) => {
@@ -23,6 +22,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(port, '포트로 서버가 열렸어요!');
+    console.log(`포트 ${port}번으로 서버 실행`);
 });
 
