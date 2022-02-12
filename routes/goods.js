@@ -7,7 +7,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/goods', async (req, res) => {
-    const goods = await Goods.find({});
+    const { category } = req.query;
+
+    console.log("category?", category);
+
+    const goods = await Goods.find({ category });
 
     res.json({
         goods,
