@@ -14,6 +14,7 @@ const requestMiddleware = (req, res, next) => {
 
 app.use(express.static("static"));
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(requestMiddleware)
 app.use("/api", [goodsRouter]);
 
