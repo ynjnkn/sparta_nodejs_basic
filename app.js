@@ -12,6 +12,7 @@ const requestMiddleware = (req, res, next) => {
     next();
 };
 
+app.use(express.static("static"));
 app.use(express.json());
 app.use(requestMiddleware)
 app.use("/api", [goodsRouter]);
@@ -21,6 +22,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`포트 ${port}번으로 서버 실행`);
+    console.log(`서버 실행 @ ${port}번 포트`);
 });
 
